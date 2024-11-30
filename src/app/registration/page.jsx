@@ -1,8 +1,20 @@
+"use client";
+import { useForm } from "react-hook-form";
 import Image from "next/image";
-import registerImage from "../../../public/Animation/register.svg";
 import Link from "next/link";
+import registerImage from "../../../public/Animation/register.svg";
 
 const RegistrationPage = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+
   return (
     <div className="flex items-center justify-center min-h-screen bg-White">
       <div className="flex flex-col md:flex-row justify-center items-center bg-white rounded-lg w-full max-w-4xl p-6">
@@ -23,7 +35,8 @@ const RegistrationPage = () => {
 
         {/* Right Section - Form */}
         <div className="md:w-1/2 px-4">
-          <form>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            {/* Full Name Field */}
             <div className="mb-4">
               <label
                 htmlFor="fullname"
@@ -34,10 +47,28 @@ const RegistrationPage = () => {
               <input
                 type="text"
                 id="fullname"
-                className="w-full px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+                className={`w-full px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 ${
+                  errors.fullname
+                    ? "border-red-500 focus:ring-red-500"
+                    : "focus:ring-purple-500"
+                }`}
                 placeholder="Enter your full name"
+                {...register("fullname", {
+                  required: "Full name is required",
+                  minLength: {
+                    value: 3,
+                    message: "Full name must be at least 3 characters long",
+                  },
+                })}
               />
+              {errors.fullname && (
+                <span className="text-red-500 text-sm">
+                  {errors.fullname.message}
+                </span>
+              )}
             </div>
+
+            {/* Email Field */}
             <div className="mb-4">
               <label
                 htmlFor="email"
@@ -48,10 +79,28 @@ const RegistrationPage = () => {
               <input
                 type="email"
                 id="email"
-                className="w-full px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+                className={`w-full px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 ${
+                  errors.email
+                    ? "border-red-500 focus:ring-red-500"
+                    : "focus:ring-purple-500"
+                }`}
                 placeholder="Enter your email"
+                {...register("email", {
+                  required: "Email is required",
+                  pattern: {
+                    value: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+                    message: "Invalid email format",
+                  },
+                })}
               />
+              {errors.email && (
+                <span className="text-red-500 text-sm">
+                  {errors.email.message}
+                </span>
+              )}
             </div>
+
+            {/* Password Field */}
             <div className="mb-4">
               <label
                 htmlFor="password"
@@ -62,10 +111,28 @@ const RegistrationPage = () => {
               <input
                 type="password"
                 id="password"
-                className="w-full px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+                className={`w-full px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 ${
+                  errors.password
+                    ? "border-red-500 focus:ring-red-500"
+                    : "focus:ring-purple-500"
+                }`}
                 placeholder="Enter your password"
+                {...register("password", {
+                  required: "Password is required",
+                  minLength: {
+                    value: 6,
+                    message: "Password must be at least 6 characters long",
+                  },
+                })}
               />
+              {errors.password && (
+                <span className="text-red-500 text-sm">
+                  {errors.password.message}
+                </span>
+              )}
             </div>
+
+            {/* Submit Button */}
             <button
               type="submit"
               className="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-300 shadow-lg"

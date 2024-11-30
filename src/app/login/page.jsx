@@ -1,8 +1,19 @@
+"use client";
+import { useForm } from "react-hook-form";
 import Image from "next/image";
-import loginImage from "../../../public/Animation/Reset password-pana.svg";
 import Link from "next/link";
+import loginImage from "../../../public/Animation/Reset password-pana.svg";
 
 const LoginPage = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-blue-100 to-blue-200">
       <div className="flex flex-col md:flex-row items-center bg-white shadow-2xl rounded-lg p-8 w-full max-w-[1300px]">
@@ -23,7 +34,8 @@ const LoginPage = () => {
 
         {/* Right Section - Form */}
         <div className="md:w-1/2 px-4">
-          <form>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            {/* Email Field */}
             <div className="mb-4">
               <label
                 htmlFor="email"
@@ -34,10 +46,28 @@ const LoginPage = () => {
               <input
                 type="email"
                 id="email"
-                className="w-full px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className={`w-full px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 ${
+                  errors.email
+                    ? "border-red-500 focus:ring-red-500"
+                    : "focus:ring-blue-500"
+                }`}
                 placeholder="Enter your email"
+                {...register("email", {
+                  required: "Email is required",
+                  pattern: {
+                    value: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+                    message: "Invalid email format",
+                  },
+                })}
               />
+              {errors.email && (
+                <span className="text-red-500 text-sm">
+                  {errors.email.message}
+                </span>
+              )}
             </div>
+
+            {/* Password Field */}
             <div className="mb-4">
               <label
                 htmlFor="password"
@@ -48,10 +78,27 @@ const LoginPage = () => {
               <input
                 type="password"
                 id="password"
-                className="w-full px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className={`w-full px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 ${
+                  errors.password
+                    ? "border-red-500 focus:ring-red-500"
+                    : "focus:ring-blue-500"
+                }`}
                 placeholder="Enter your password"
+                {...register("password", {
+                  required: "Password is required",
+                  minLength: {
+                    value: 6,
+                    message: "Password must be at least 6 characters long",
+                  },
+                })}
               />
+              {errors.password && (
+                <span className="text-red-500 text-sm">
+                  {errors.password.message}
+                </span>
+              )}
             </div>
+
             <div className="flex items-center justify-between mb-6">
               <label className="flex items-center text-sm">
                 <input type="checkbox" className="mr-2" />
@@ -61,6 +108,8 @@ const LoginPage = () => {
                 Forgot Password?
               </a>
             </div>
+
+            {/* Submit Button */}
             <div className="w-full flex justify-center">
               <button
                 type="submit"

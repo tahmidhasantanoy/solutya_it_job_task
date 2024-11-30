@@ -5,7 +5,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 // Define a service using a base URL and expected endpoints
 export const baseApi = createApi({
   reducerPath: "GYMApi",
-  baseQuery: axiosBaseQuery({ baseUrl: "https://pokeapi.co/api/v2/" }), // Change the base URL depending on the API you're using
+  baseQuery: axiosBaseQuery({ baseUrl: "http://localhost:5000/" }), // Change the base URL depending on the API you're using
   endpoints: () => ({}),
 });
 

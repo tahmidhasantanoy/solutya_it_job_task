@@ -11,7 +11,7 @@ export const axiosBaseQuery =
         params,
         /* headers: {
           "Content-Type": contentType || "application/json",
-        }, */
+        }, */ //It need for send data
       });
 
       // return { data: result.data };

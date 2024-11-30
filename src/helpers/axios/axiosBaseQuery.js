@@ -1,40 +1,30 @@
-import { createApi } from '@reduxjs/toolkit/query'
-import axios from 'axios'
+import axios from "axios";
 
-const axiosBaseQuery =
-  ({ baseUrl } = { baseUrl: '' }) =>
-  async ({ url, method, data, params, headers }) => {
+export const axiosBaseQuery =
+  ({ baseUrl } = { baseUrl: "" }) =>
+  async ({ url, method, data, params, headers /* contentType */ }) => {
     try {
       const result = await axios({
         url: baseUrl + url,
         method,
         data,
         params,
-        headers,
-        // meta,
-      })
-      return { data: result.data }
+        /* headers: {
+          "Content-Type": contentType || "application/json",
+        }, */
+      });
+
+      // return { data: result.data };
+      return result;
+
+
     } catch (axiosError) {
-      const err = axiosError
+      const err = axiosError;
       return {
         error: {
           status: err.response?.status,
           data: err.response?.data || err.message,
         },
-      }
+      };
     }
-  }
-
-const api = createApi({
-  baseQuery: axiosBaseQuery({
-    baseUrl: 'https://example.com',
-  }),
-  endpoints(build) {
-    return {
-      query: build.query({ query: () => ({ url: '/query', method: 'get' }) }),
-      mutation: build.mutation({
-        query: () => ({ url: '/mutation', method: 'post' }),
-      }),
-    }
-  },
-})
+  };

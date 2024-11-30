@@ -1,5 +1,6 @@
 import Image from "next/image";
 import loginImage from "../../../public/Animation/Reset password-pana.svg";
+import Link from "next/link";
 
 const LoginPage = () => {
   return (
@@ -61,20 +62,22 @@ const LoginPage = () => {
               </a>
             </div>
             <div className="w-full flex justify-center">
-            <button
-              type="submit"
-            //   className="block mx-auto"
-              className="w-1/2 text-center bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-300 shadow-lg"
-            >
-              Login
-            </button>
+              <button
+                type="submit"
+                className="w-1/2 text-center bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-300 shadow-lg"
+              >
+                Login
+              </button>
             </div>
           </form>
           <p className="text-gray-600 text-center mt-6">
             Don&apos;t have an account?{" "}
-            <a href="#" className="text-blue-500 font-medium hover:underline">
+            <Link
+              href="/registration"
+              className="text-blue-500 font-medium hover:underline"
+            >
               Sign Up
-            </a>
+            </Link>
           </p>
         </div>
       </div>

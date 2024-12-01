@@ -2,23 +2,24 @@ import axios from "axios";
 
 export const axiosBaseQuery =
   ({ baseUrl } = { baseUrl: "" }) =>
-  async ({ url, method, data, params, headers /* contentType */ }) => {
+  async ({ url, method, data, params, headers, contentType }) => {
     try {
       const result = await axios({
         url: baseUrl + url,
         method,
         data,
         params,
-        /* headers: {
+        headers: {
           "Content-Type": contentType || "application/json",
-        }, */ //It need for send data
+        },
       });
 
-      // return { data: result.data };
-      return result;
-
+      // Return only the data part
+      return { data: result.data }; 
+      // return result;
 
     } catch (axiosError) {
+      // Handle errors
       const err = axiosError;
       return {
         error: {

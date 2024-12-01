@@ -3,16 +3,37 @@ import { useForm } from "react-hook-form";
 import Image from "next/image";
 import Link from "next/link";
 import registerImage from "../../../public/Animation/register.svg";
+import { useRegTrainerMutation } from "../redux/api/registerApi";
 
 const RegistrationPage = () => {
+  const [regTrainer] = useRegTrainerMutation();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (data) => {
+    // console.log(data);
+
+    const { fullname, email, password } = data;
+
+    const trainerData = {
+      fullname: fullname,
+      email: email,
+      password: password,
+    };
+
+    console.log(trainerData); //ok
+
+    try {
+      const responseFromRegTrainerApi = await regTrainer(trainerData);
+
+      console.log("responseFromRegTrainerApi", responseFromRegTrainerApi);
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   return (

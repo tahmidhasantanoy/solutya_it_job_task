@@ -17,7 +17,6 @@ const RegistrationPage = () => {
   } = useForm();
 
   const onSubmit = async (data) => {
-    // console.log(data);
 
     const { fullname, email, password } = data;
 

@@ -12,7 +12,7 @@ const LoginPage = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    // Let's implement login logic here
   };
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-blue-100 to-blue-200">

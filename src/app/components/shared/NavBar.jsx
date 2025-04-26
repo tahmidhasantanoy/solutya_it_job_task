@@ -3,6 +3,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
+import logo from "../../../../public/images/logo.png";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,7 +13,14 @@ const Header = () => {
     <header className="bg-[#426AE2] shadow-md fixed w-full z-50">
       <div className="max-w-7xl mx-auto flex justify-between items-center px-4 py-3">
         {/* Left - Logo */}
-        <div className="flex-shrink-0">
+        <div className="flex items-center">
+          <Image
+            src={logo}
+            alt="Logo"
+            width={50}
+            height={50}
+            className="w-10 h-10 mr-2"
+          />
           <Link href="/" className="text-2xl font-bold text-white">
             COCA
           </Link>

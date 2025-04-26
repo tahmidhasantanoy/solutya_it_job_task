@@ -42,10 +42,12 @@ const Service = () => {
           transition={{ duration: 0.7 }}
           className="relative w-full max-w-md mx-auto"
         >
-          <div className="absolute inset-0 bg-gradient-to-tr from-blue-500 to-blue-300 rounded-3xl -z-10" />
+          {/* Gradient behind the card */}
+          <div className="absolute -top-7 -left-7 w-full h-full bg-gradient-to-tr from-blue-500 to-cyan-400 rounded-md z-0"></div>
 
-          <div className="bg-white p-6 rounded-2xl shadow-xl space-y-6">
-            <h4 className="font-semibold text-gray-900 text-lg">
+          {/* Actual Card */}
+          <div className="relative bg-white p-8 rounded-2xl shadow-2xl z-10 space-y-6">
+            <h4 className="font-semibold text-gray-900 text-xl">
               Overall time used
             </h4>
             <p className="text-gray-500 text-sm">
@@ -54,24 +56,24 @@ const Service = () => {
 
             <div className="flex justify-between text-center text-sm font-semibold text-gray-700">
               <div>
-                <p className="text-xl font-bold">36h</p>
+                <p className="text-2xl font-bold">36h</p>
                 <p>Total hrs</p>
               </div>
               <div>
-                <p className="text-xl font-bold">32h 20m</p>
+                <p className="text-2xl font-bold">32h 20m</p>
                 <p>Efc. time</p>
               </div>
               <div>
-                <p className="text-xl font-bold">3h 4m</p>
+                <p className="text-2xl font-bold">3h 4m</p>
                 <p>Non-efc.</p>
               </div>
               <div>
-                <p className="text-xl font-bold">95%</p>
+                <p className="text-2xl font-bold">95%</p>
                 <p>Productivity</p>
               </div>
             </div>
 
-            {/* Dummy Chart */}
+            {/* Bar Chart */}
             <div className="mt-6 flex items-end justify-between h-32">
               {[4, 6, 10, 8, 7, 5, 2].map((height, idx) => (
                 <div key={idx} className="flex flex-col items-center space-y-1">
@@ -86,7 +88,6 @@ const Service = () => {
           </div>
         </motion.div>
 
-        {/* Text Content */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -102,11 +103,10 @@ const Service = () => {
             focus on lightning-fast performance.
           </p>
 
-          {/* Steps */}
           <div className="space-y-6">
             <div className="flex items-start gap-4">
-              <div className="p-2 bg-green-100 text-green-600 rounded-full">
-                <FaDownload />
+              <div className="p-3 bg-green-100 text-green-600 rounded-full">
+                <FaDownload size={20} />
               </div>
               <div>
                 <h5 className="font-semibold text-lg text-gray-900">
@@ -119,8 +119,8 @@ const Service = () => {
             </div>
 
             <div className="flex items-start gap-4">
-              <div className="p-2 bg-green-100 text-green-600 rounded-full">
-                <FaUserPlus />
+              <div className="p-3 bg-green-100 text-green-600 rounded-full">
+                <FaUserPlus size={20} />
               </div>
               <div>
                 <h5 className="font-semibold text-lg text-gray-900">
@@ -133,8 +133,8 @@ const Service = () => {
             </div>
 
             <div className="flex items-start gap-4">
-              <div className="p-2 bg-green-100 text-green-600 rounded-full">
-                <FaClock />
+              <div className="p-3 bg-green-100 text-green-600 rounded-full">
+                <FaClock size={20} />
               </div>
               <div>
                 <h5 className="font-semibold text-lg text-gray-900">

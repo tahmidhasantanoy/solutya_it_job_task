@@ -38,7 +38,7 @@ const TimeManagement = () => {
         transition={{ duration: 0.6 }}
         className="relative mt-12 md:mt-0 w-full max-w-sm"
       >
-        <div className="absolute -top-4 -left-4 w-full h-full bg-gradient-to-tr from-blue-500 to-cyan-400 rounded-3xl z-0"></div>
+        <div className="absolute -top-7 -left-7 w-full h-full bg-gradient-to-tr from-blue-500 to-cyan-400 rounded-md z-0"></div>
 
         <div className="relative bg-white rounded-2xl p-8 shadow-2xl z-10">
           <h3 className="text-center font-medium text-gray-800 mb-6">

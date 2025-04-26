@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 const GoodUI = () => {
   return (
     <section className="flex flex-col items-center p-8 md:p-16 bg-white">
-      {/* Top Heading */}
       <div className="text-center max-w-3xl space-y-4 mb-16">
         <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
           Our user-friendly interface allows for <br />
@@ -18,7 +17,6 @@ const GoodUI = () => {
         </p>
       </div>
 
-      {/* Cards Row */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-6xl">
         {/* Card 1 */}
         <motion.div
@@ -27,8 +25,7 @@ const GoodUI = () => {
           transition={{ duration: 0.6 }}
           className="bg-white border rounded-2xl p-6 shadow-md space-y-6"
         >
-          {/* Top Client Info */}
-            <p>Top Clients</p>
+          <p>Top Clients</p>
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 bg-gray-300 rounded-full"></div>
@@ -42,7 +39,6 @@ const GoodUI = () => {
             </span>
           </div>
 
-          {/* Text Content */}
           <div className="space-y-2 pt-2">
             <h5 className="font-semibold text-lg text-gray-900">
               Manage customer relationships
@@ -61,7 +57,6 @@ const GoodUI = () => {
           transition={{ duration: 0.8 }}
           className="bg-white border rounded-2xl p-6 shadow-md space-y-6"
         >
-          {/* Feedback Info */}
           <div className="flex items-center gap-4">
             <div className="w-12 h-12 bg-gray-300 rounded-full"></div>
             <div>
@@ -72,7 +67,6 @@ const GoodUI = () => {
             </div>
           </div>
 
-          {/* Text Content */}
           <div className="space-y-2 pt-2">
             <h5 className="font-semibold text-lg text-gray-900">
               Get insights from feedback to improve
@@ -91,9 +85,7 @@ const GoodUI = () => {
           transition={{ duration: 1 }}
           className="bg-white border rounded-2xl p-6 shadow-md space-y-6"
         >
-          {/* Progress Bars */}
           <div className="space-y-6">
-            {/* Copywriting */}
             <div>
               <div className="flex justify-between text-sm font-medium text-gray-700 mb-1">
                 <span>Copywriting</span>
@@ -107,7 +99,6 @@ const GoodUI = () => {
               </div>
             </div>
 
-            {/* Illustration */}
             <div>
               <div className="flex justify-between text-sm font-medium text-gray-700 mb-1">
                 <span>Illustration</span>
@@ -121,7 +112,6 @@ const GoodUI = () => {
               </div>
             </div>
 
-            {/* UX Design */}
             <div>
               <div className="flex justify-between text-sm font-medium text-gray-700 mb-1">
                 <span>UX Design</span>
@@ -136,7 +126,6 @@ const GoodUI = () => {
             </div>
           </div>
 
-          {/* Text Content */}
           <div className="space-y-2 pt-4">
             <h5 className="font-semibold text-lg text-gray-900">
               Review your hard work&apos;s outcome

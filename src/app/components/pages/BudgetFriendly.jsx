@@ -20,8 +20,6 @@ const BudgetFriendly = () => {
 
       {/* Cards */}
       <div className="flex flex-col md:flex-row gap-6">
-        {/* Basic Plan */}
-        {/* TODO : shadow bootom right */}
         <div className="flex flex-col rounded-2xl shadow-b-r p-8 bg-white w-full max-w-sm">
           <h3 className="text-gray-800 font-semibold text-lg mb-2">
             Basic plan
@@ -102,7 +100,6 @@ const BudgetFriendly = () => {
           </ul>
         </div>
 
-        {/* Enterprise */}
         <div className="flex flex-col rounded-2xl shadow-md p-8 bg-white w-full max-w-sm">
           <h3 className="text-gray-800 font-semibold text-lg mb-2">
             Enterprise plan

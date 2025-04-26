@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { FaDownload, FaUserPlus, FaClock } from "react-icons/fa";
 
 const Service = () => {
@@ -13,7 +12,6 @@ const Service = () => {
         </h2>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-center max-w-4xl mx-auto">
-          {/* Example logo item */}
           {[
             "videohive",
             "codecanyon",
@@ -33,19 +31,15 @@ const Service = () => {
         </div>
       </div>
 
-      {/* Scheduling Section */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center w-full max-w-7xl">
-        {/* Chart Card */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           className="relative w-full max-w-md mx-auto"
         >
-          {/* Gradient behind the card */}
           <div className="absolute -top-7 -left-7 w-full h-full bg-gradient-to-tr from-blue-500 to-cyan-400 rounded-md z-0"></div>
 
-          {/* Actual Card */}
           <div className="relative bg-white p-8 rounded-2xl shadow-2xl z-10 space-y-6">
             <h4 className="font-semibold text-gray-900 text-xl">
               Overall time used

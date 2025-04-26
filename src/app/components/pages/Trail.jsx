@@ -24,7 +24,6 @@ const Trail = () => {
           <span>No fees</span>
         </div>
 
-        {/* Input & Button */}
         <div className="flex flex-col sm:flex-row justify-center gap-4 max-w-md mx-auto">
           <div className="flex items-center">
             <div className="relative">

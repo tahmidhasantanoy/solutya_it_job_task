@@ -41,8 +41,7 @@ const budgetData = [
 
 const TimeTracking = () => {
   return (
-    <section className="min-h-screen bg-gradient-to-tr from-blue-500 via-indigo-500 to-green-400 flex flex-col items-center justify-center p-8">
-      {/* Heading */}
+    <section className="min-h-screen bg-gradient-to-tr from-blue-500 via-indigo-500 to-green-400 flex flex-col items-center justify-center pt-40 p-8">
       <div className="text-center max-w-3xl mb-10">
         <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
           Improve efficiency through time tracking.
@@ -54,7 +53,6 @@ const TimeTracking = () => {
         </p>
       </div>
 
-      {/* Buttons */}
       <div className="flex items-center gap-6 mb-16">
         <button className="bg-green-300 hover:bg-green-400 text-green-900 font-semibold px-6 py-3 rounded-full shadow-md">
           Get Trial Project
@@ -73,11 +71,12 @@ const TimeTracking = () => {
         </button>
       </div>
 
-      {/* Chart Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 w-full max-w-6xl">
+      <div className="relative grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 w-full max-w-7xl mx-auto">
         {/* Left Card */}
-        <div className="bg-white rounded-xl shadow-md p-6">
-          <h3 className="font-semibold mb-4">Income vs Expenses</h3>
+        <div className="relative bg-white rounded-xl shadow-md p-6 -top-40 xl:scale-90 flex flex-col">
+          <h3 className="font-semibold mb-4 whitespace-nowrap text-center">
+            Income vs Expenses
+          </h3>
           <div className="h-40">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={incomeExpensesData}>
@@ -91,10 +90,26 @@ const TimeTracking = () => {
           </div>
         </div>
 
-        {/* Center Card */}
-        <div className="bg-white rounded-xl shadow-md p-6">
-          <h3 className="font-semibold mb-4">Time Tracking</h3>
-          <div className="h-40">
+        <div className="relative bg-white rounded-xl shadow-md p-8 xl:scale-105 flex flex-col justify-between">
+          <div className="flex flex-wrap md:flex-nowrap justify-between items-center mb-4 gap-4">
+            <h3 className="font-semibold whitespace-nowrap text-lg">
+              Time Tracking
+            </h3>
+
+            <div className="flex items-center gap-3">
+              <h3 className="font-semibold text-[10px] whitespace-nowrap">
+                This month
+              </h3>
+              <h3 className="font-semibold text-[10px] whitespace-nowrap">
+                All time
+              </h3>
+              <button className="bg-gray-200 px-3 py-2 rounded-lg text-sm whitespace-nowrap">
+                Last 7 days
+              </button>
+            </div>
+          </div>
+
+          <div className="h-48">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={timeTrackingData}>
                 <XAxis dataKey="day" />
@@ -107,8 +122,10 @@ const TimeTracking = () => {
         </div>
 
         {/* Right Card */}
-        <div className="bg-white rounded-xl shadow-md p-6">
-          <h3 className="font-semibold mb-4">Time vs Budget</h3>
+        <div className="relative bg-white rounded-xl shadow-md p-6 -top-28 xl:scale-90 flex flex-col">
+          <h3 className="font-semibold mb-4 whitespace-nowrap text-center">
+            Time vs Budget
+          </h3>
           <div className="h-40">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={budgetData}>
@@ -134,7 +151,6 @@ const TimeTracking = () => {
         </div>
       </div>
 
-      {/* Bottom Stats */}
       <div className="flex flex-col md:flex-row gap-12 items-center text-white text-center">
         <div>
           <h4 className="text-3xl font-bold mb-2">15+</h4>
